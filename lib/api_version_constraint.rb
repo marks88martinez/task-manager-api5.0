@@ -3,8 +3,8 @@ class ApiVersionConstraint
     @version = options[:version]
     @default = options[:default]
   end
-  def matchers?(req) # si termina en ? return true o false
+
+  def matches?(req)
     @default || req.headers['Accept'].include?("application/vnd.taskmanager.v#{@version}")
   end
-
 end
