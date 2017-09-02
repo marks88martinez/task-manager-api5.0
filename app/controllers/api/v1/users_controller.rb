@@ -13,6 +13,7 @@ respond_to :json
     if user.save
       render json: user, status: 201
     else
+      # byebug
       render json: {errors: user.errors}, status: 422
 
     end
