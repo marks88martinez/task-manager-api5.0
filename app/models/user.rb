@@ -6,5 +6,10 @@ class User < ApplicationRecord
 
         #  attr_accessor :name
          #
-        #  validate_presence_of :name
+        #  validate_presence_of :auth_token
+      validates_uniqueness_of :auth_token
+
+      def info
+        "#{email} - #{created_at}"
+      end
 end
