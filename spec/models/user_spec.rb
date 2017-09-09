@@ -21,6 +21,23 @@ RSpec.describe User, type: :model do
 
   end
 
+  describe "#generate_authentication_token!" do
+    it "generate a unique auth token" do
+      allow(Devise).to receive(:friendly_token).and_return('abc123xzyTOKEN')
+      user.generate_authentication_token!
+
+      expect(user.auth_token).to eq('abc123xzyTOKEN')
+    end
+    it "generates another auth token the current auth token already has bee token" do
+
+      allow(Devise).to receive(:friendly_token).and_return('abc123xzytokenzxc','abc123xzytokenzxc','abc123456789')
+      existing_user = create(:user)
+        user.generate_authentication_token!
+        expect(user.auth_token).not_to eq(existing_user.auth_token)
+    end
+
+  end
+
 
 
   # it{expect(user).to respond_to(:email)}
