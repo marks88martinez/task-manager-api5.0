@@ -57,3 +57,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'ransack'
+
+# OmniAuth is a flexible authentication system utilizing Rack middleware. http://github.com/omniauth/omniauth/wiki
+gem 'omniauth'
+
+# Token based authentication for Rails JSON APIs. Designed to work with jToker and ng-token-auth.
+gem 'devise_token_auth'
